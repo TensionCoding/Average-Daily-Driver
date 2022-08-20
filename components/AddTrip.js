@@ -6,38 +6,6 @@ const AddTrip = ({handleFormSubmit, onPress}) => {
   const [time, onChangeTime] = React.useState("");
   const [odo, onChangeOdo] = React.useState("");
   const [start, onChangeStart] = React.useState("");
-  //console.log('props-->', props)
-//   const payload = {
-//     date: date,
-//     time: time,
-//     odo: odo,
-//     start: start
-//   };
-  
-//   constructor(props) {
-//     super(props);
-//     //this.handleChange = this.handleChange.bind(this);
-//     // state = {
-//     //   date: '',
-//     //   time: '',
-//     //   odo: '',
-//     //   start: ''
-//     // }
-//   }
-
-//   handleChange(event) {
-//     //console.log('handleChange in MainContainer', event.target.value);
-//     this.props.handleFormChange(event)
-//   }
-  //function handleSubmit (payload) {
-    //console.log('submit button pushed in Main Container', event)
-    //this.props.handleFormSubmit(payload);
-  //}
-
-//   render() {
-//     const {date, time, odo, start} = this.props;
-//     console.log()
-//     const [text, onChangeText] = React.useState("Useless Text");
 
     return (
       <SafeAreaView style={styles.container}>
@@ -80,31 +48,8 @@ const AddTrip = ({handleFormSubmit, onPress}) => {
         title={'ADD TRIP'}>
         </Button>
       </SafeAreaView>
-    //   <form onSubmit={this.handleSubmit}>
-    //     <label>
-    //       Date:
-    //       <input name='date' type="text" value={date} onChange={this.handleChange} />
-    //     </label>
-    //     <br />
-    //     <label>
-    //       Time:
-    //       <input name='time' type="text" value={time} onChange={this.handleChange} />
-    //     </label>
-    //     <br />
-    //     <label>
-    //       Odometer:
-    //       <input name='odo' type="text" value={odo} onChange={this.handleChange} />
-    //     </label>
-    //     <br />
-    //     <label>
-    //       Start:
-    //       <input name='start' type="text" value={start} onChange={this.handleChange} />
-    //     </label>
-    //     {/* <input type="submit" value="Submit" /> */}
-    //   </form>
     );
   }
-//}
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'black',

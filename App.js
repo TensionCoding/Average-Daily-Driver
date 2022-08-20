@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, View, Button } from 'react-native';
 import TripDisplay from './components/TripDisplay';
 import AddTrip from './components/AddTrip';
@@ -11,40 +11,38 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import GooglePlacesInput from './components/GooglePlaces';
 
-export default class App extends Component {
-  constructor (props){
-    super(props);
-  }
-  render(){
-    function HomeScreen ({navigation}) {
-      return (
-        <View>
-          <Text>Home Screen</Text>
-          <Button title='Go To Details'
-          onPress={()=> navigation.navigate('Details')} />
-        </View>
-      )
-    }
-    function DetailScreen () {
-      return (
-        <View>
-          <Text>Detail Screen</Text>
-        </View>
-      )
-    }
-    const Stack = createNativeStackNavigator();
-  return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Sign In'>
-        <Stack.Screen name='Sign In' component={SignIn}/>
-        <Stack.Screen name='Sign Up' component={SignUp}/>
-        <Stack.Screen name='Home' component={Home}/>
-        <Stack.Screen name='Google' component={GooglePlacesInput} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-  }
+const Stack = createNativeStackNavigator();
+
+export default function App () {
+    return (
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName='Sign In'>
+          <Stack.Screen name='Sign In' component={SignIn}/>
+          <Stack.Screen name='Sign Up' component={SignUp}/>
+          <Stack.Screen name='Home' component={Home}/>
+          <Stack.Screen name='Google' component={GooglePlacesInput} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    );
 }
+// export default class App extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
+//   render() {
+//     const Stack = createNativeStackNavigator();
+//     return (
+//       <NavigationContainer>
+//         <Stack.Navigator initialRouteName='Sign In'>
+//           <Stack.Screen name='Sign In' component={SignIn}/>
+//           <Stack.Screen name='Sign Up' component={SignUp}/>
+//           <Stack.Screen name='Home' component={Home}/>
+//           <Stack.Screen name='Google' component={GooglePlacesInput} />
+//         </Stack.Navigator>
+//       </NavigationContainer>
+//     );
+//   }
+// }
 
 const styles = StyleSheet.create({
   container: {
@@ -57,11 +55,11 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: 'lightblue',
-    marginHorizontal:20,
+    marginHorizontal: 20,
   },
   text: {
     fontSize: 25,
-  }
+  },
 });
 
 /*
