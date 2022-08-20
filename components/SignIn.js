@@ -5,6 +5,7 @@ import Logo from '../assets/ADD.png'
 import CustomInput from './CustomInput';
 import CustomBotton from './CustomButton';
 import GooglePlacesInput from './GooglePlaces';
+// import {IP_ADDRESS} from 'react-native-dotenv'
 
 const SignIn = ({navigation}) => {
   const {height} = useWindowDimensions();
@@ -12,6 +13,7 @@ const SignIn = ({navigation}) => {
   const [password, setPassword] = useState('');
 
   const onSignInPressed = async () =>{
+    // console.log('here is the ip--->',IP_ADDRESS)
     console.log('in Login Being Pressed')
     const payload = {
       username: username,

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, SafeAreaView, ScrollView, View, Button } from 'react-native';
 import TripDisplay from './TripDisplay';
 import AddTrip from './AddTrip';
@@ -36,6 +36,7 @@ export default class Home extends Component {
     const reqUser = this.props.route.params.username;
     console.log('here is reqUser', reqUser)
     const response = await fetch(`http://192.168.1.5:8080/getTrips/${reqUser}`);
+
     const body = await response.json();
     if (response.status !== 200) {
       throw Error(body.message) 
