@@ -4,6 +4,7 @@ import { StyleSheet, Text, SafeAreaView, ScrollView, View, Button } from 'react-
 import TripDisplay from './TripDisplay';
 import AddTrip from './AddTrip';
 import CustomBotton from './CustomButton';
+import {IP_ADDRESS} from '@env';
 export default class Home extends Component {
   constructor (props){
     super(props);
@@ -35,7 +36,9 @@ export default class Home extends Component {
     console.log('in call backend')
     const reqUser = this.props.route.params.username;
     console.log('here is reqUser', reqUser)
-    const response = await fetch(`http://192.168.1.5:8080/getTrips/${reqUser}`);
+    const response = await fetch(
+      `http://${IP_ADDRESS}:8080/getTrips/${reqUser}`,
+    );
 
     const body = await response.json();
     if (response.status !== 200) {
@@ -71,7 +74,7 @@ export default class Home extends Component {
     const reqUser = this.props.route.params.username;
     console.log('here is reqUser-->', reqUser)
     console.log('in handleFormSubmit, here is newEntry-->', payload)
-    fetch(`http://192.168.1.5:8080/addTrip/${reqUser}`, {
+    fetch(`http://${IP_ADDRESS}:8080/addTrip/${reqUser}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
@@ -98,7 +101,7 @@ export default class Home extends Component {
     const userID = this.props.route.params.username;
     const objID = event;
     //?param1="+lat+"&param2="+lon
-    fetch(`http://192.168.1.5:8080/deleteTrip/${objID}-${userID}`, 
+    fetch(`http://${IP_ADDRESS}:8080/deleteTrip/${objID}-${userID}`, 
     {method: 'DELETE'})
     .then(res => res.json())
     .then(res => {

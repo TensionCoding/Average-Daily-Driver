@@ -1,23 +1,12 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const app = express();
-//const User = require('./app/config/db.config');
-const apiRouter = require('./server/routes/api')
-// const mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
-// var corsOptions = {
-//   origin: ['*', 'http://localhost:9500', 'http://192.168.1.5:1900']
-
-//    // origin: ['http://localhost:9500', 'http://localhost:19006', 'http://localhost:19000', 'http://localhost:19002', 'exp://192.168.1.5:19000']
-// };
+const apiRouter = require('./server/routes/api');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded());
 
 app.use('/', apiRouter);
-
-
 
 /*
 app.post('/express_backend', (req, res) => { //Line 9
