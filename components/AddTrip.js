@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from 'react';
 import { StyleSheet, Text, View, Button, TextInput, SafeAreaView } from 'react-native';
 
 const AddTrip = ({handleFormSubmit, onPress}) => {

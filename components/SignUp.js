@@ -4,6 +4,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Logo from '../assets/ADD.png'
 import CustomInput from './CustomInput';
 import CustomBotton from './CustomButton';
+import {IP_ADDRESS} from '@env';
+
 
 const SignUp = ({navigation}) => {
   const {height} = useWindowDimensions();
@@ -17,7 +19,7 @@ const SignUp = ({navigation}) => {
       password: password
     }
     console.log('payload--->', payload)
-    const response = await fetch('http://192.168.1.5:8080/createUser', {
+    const response = await fetch(`http://${IP_ADDRESS}:8080/createUser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

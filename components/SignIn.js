@@ -5,7 +5,7 @@ import Logo from '../assets/ADD.png'
 import CustomInput from './CustomInput';
 import CustomBotton from './CustomButton';
 import GooglePlacesInput from './GooglePlaces';
-// import {IP_ADDRESS} from 'react-native-dotenv'
+import {IP_ADDRESS} from '@env';
 
 const SignIn = ({navigation}) => {
   const {height} = useWindowDimensions();
@@ -21,7 +21,7 @@ const SignIn = ({navigation}) => {
     }
     console.log('payload--->', payload)
     //check IP Address
-    const response = await fetch('http://192.168.1.5:8080/login', {
+    const response = await fetch(`http://${IP_ADDRESS}:8080/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
